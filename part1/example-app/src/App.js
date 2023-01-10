@@ -1,26 +1,13 @@
-const Hello = ({ name, age }) => {
-  const bornYear = () => new Date().getFullYear() - age;
+import { useState } from "react";
 
-  return (
-    <>
-      <p>
-        hello {name}, you are {age} years old
-      </p>
-      <p>So you were probably born in {bornYear()}</p>
-    </>
-  );
-};
+const App = () => {
+  const [counter, setCounter] = useState(0);
 
-function App() {
-  const name = "Emerson";
-  const age = 22;
+  setTimeout(() => setCounter(counter + 1), 1000);
 
-  return (
-    <>
-      <Hello name="Sebas" age={21}></Hello>
-      <Hello name={name} age={age}></Hello>
-    </>
-  );
+  console.log("rendering...", counter);
+
+  return <div>{`${counter} calls`}</div>;
 };
 
 export default App;
